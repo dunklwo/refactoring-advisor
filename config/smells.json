@@ -1,0 +1,73 @@
+{
+  "smells": [
+    {
+      "id": "LONG_METHOD",
+      "label": "Long Method",
+      "severity": "HIGH",
+      "description": "A function/method body exceeds 30 lines of code, making it hard to understand and test.",
+      "threshold": 30,
+      "unit": "LOC_per_function",
+      "pattern": "Extract Method",
+      "rationale": "Long methods do too much. Break them into smaller, focused functions with descriptive names."
+    },
+    {
+      "id": "GOD_CLASS",
+      "label": "God Class",
+      "severity": "HIGH",
+      "description": "A class has more than 10 methods or 20 attributes, accumulating too many responsibilities.",
+      "threshold_methods": 10,
+      "threshold_attrs": 20,
+      "unit": "methods_or_attrs_per_class",
+      "pattern": "Extract Class",
+      "rationale": "God Classes violate the Single Responsibility Principle. Split them into cohesive, focused classes."
+    },
+    {
+      "id": "DEAD_CODE",
+      "label": "Dead Code",
+      "severity": "MEDIUM",
+      "description": "Functions or variables are declared but never called/used anywhere in the codebase.",
+      "unit": "unreferenced_declarations",
+      "pattern": "Remove Dead Code",
+      "rationale": "Dead code adds confusion and maintenance burden. Remove it or mark it with a deprecation note."
+    },
+    {
+      "id": "LONG_PARAM_LIST",
+      "label": "Long Parameter List",
+      "severity": "MEDIUM",
+      "description": "A function has more than 4 parameters, making calls difficult to read and error-prone.",
+      "threshold": 4,
+      "unit": "params_per_function",
+      "pattern": "Introduce Parameter Object",
+      "rationale": "Group related parameters into a data class or object to simplify function signatures."
+    },
+    {
+      "id": "DUPLICATE_CODE",
+      "label": "Duplicate Code",
+      "severity": "HIGH",
+      "description": "Identical or near-identical code blocks (5+ lines) appear in two or more places.",
+      "threshold": 5,
+      "unit": "duplicate_lines",
+      "pattern": "Extract Method / Template Method",
+      "rationale": "Duplication means bugs must be fixed in multiple places. Extract shared logic into a reusable function."
+    },
+    {
+      "id": "MAGIC_NUMBER",
+      "label": "Magic Number",
+      "severity": "LOW",
+      "description": "Numeric literals are used directly in code instead of being assigned to named constants.",
+      "unit": "bare_literals",
+      "pattern": "Replace Magic Number with Constant",
+      "rationale": "Named constants explain intent. Replace 86400 with SECONDS_PER_DAY to make code self-documenting."
+    },
+    {
+      "id": "DEEP_NESTING",
+      "label": "Deeply Nested Code",
+      "severity": "MEDIUM",
+      "description": "Control structures are nested more than 4 levels deep, creating hard-to-follow logic.",
+      "threshold": 4,
+      "unit": "nesting_depth",
+      "pattern": "Extract Method / Guard Clauses",
+      "rationale": "Use early returns (guard clauses) and extracted methods to flatten deeply nested control flow."
+    }
+  ]
+}
